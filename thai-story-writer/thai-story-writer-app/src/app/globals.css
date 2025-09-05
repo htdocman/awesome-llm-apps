@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Thai fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Minimal Color System */
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --background-tertiary: #f1f5f9;
+  --background-elevated: #ffffff;
+  
+  --foreground: #0f172a;
+  --foreground-secondary: #475569;
+  --foreground-tertiary: #64748b;
+  --foreground-muted: #94a3b8;
+  
+  --border: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --border-hover: #94a3b8;
+  
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #dbeafe;
+  --primary-foreground: #ffffff;
+  
+  --success: #059669;
+  --success-light: #d1fae5;
+  --warning: #d97706;
+  --warning-light: #fef3c7;
+  --error: #dc2626;
+  --error-light: #fecaca;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --background-secondary: #0f172a;
+    --background-tertiary: #1e293b;
+    --background-elevated: #0f172a;
+    
+    --foreground: #f8fafc;
+    --foreground-secondary: #cbd5e1;
+    --foreground-tertiary: #94a3b8;
+    --foreground-muted: #64748b;
+    
+    --border: #1e293b;
+    --border-secondary: #334155;
+    --border-hover: #475569;
+    
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-light: #1e3a8a;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sarabun), 'Sarabun', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Rich Text Editor Styles */
+.ql-editor {
+  font-family: var(--font-sarabun), 'Sarabun', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
+  font-family: var(--font-kanit), 'Kanit', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Quill snow theme customization */
+.ql-toolbar {
+  border: 1px solid #e5e7eb;
+  border-bottom: none;
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: #f9fafb;
+}
+
+.ql-container {
+  border: 1px solid #e5e7eb;
+  border-radius: 0 0 0.5rem 0.5rem;
+  font-family: var(--font-sarabun), 'Sarabun', ui-sans-serif, system-ui, sans-serif;
+}
+
+.ql-editor.ql-blank::before {
+  font-family: var(--font-sarabun), 'Sarabun', ui-sans-serif, system-ui, sans-serif;
+  font-style: normal;
+  color: #9ca3af;
+}
+
+/* Thai text styling */
+.thai-text {
+  font-family: var(--font-sarabun), 'Sarabun', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.thai-heading {
+  font-family: var(--font-kanit), 'Kanit', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Focus styles */
+.focus-ring:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+  border-radius: 0.375rem;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+}
+
+/* Form styles */
+.form-input {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+}
+
+.form-textarea {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none;
+}
+
+.form-select {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply w-full bg-gray-200 rounded-full h-2;
+}
+
+.progress-fill {
+  @apply h-2 bg-blue-600 rounded-full transition-all duration-300 ease-out;
+}
+
+/* Typography utilities */
+.text-thai {
+  font-family: var(--font-sarabun), 'Sarabun', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.7;
+}
+
+.heading-thai {
+  font-family: var(--font-kanit), 'Kanit', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full border-b-2 border-blue-600;
+}
+
+/* Responsive utilities for Thai text */
+@media (max-width: 768px) {
+  .thai-text {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}

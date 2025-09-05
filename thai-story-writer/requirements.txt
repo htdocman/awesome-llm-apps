@@ -1,0 +1,5 @@
+openai==1.52.0
+streamlit==1.39.0
+python-dotenv==1.0.1
+langdetect==1.0.9
+tiktoken==0.8.0
